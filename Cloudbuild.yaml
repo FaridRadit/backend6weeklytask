@@ -1,24 +1,17 @@
+# cloudbuild.yaml
 steps:
-  - name: "gcr.io/cloud-builders/docker"
-    args: [ "build", "-t", "gcr.io/h-07-450914/backendnote", "." ]
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build Docker image
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/backend-service', '.']
 
-  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-    entrypoint: "gcloud"
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: Deploy to Cloud Run
+    entrypoint: gcloud
     args:
       [
-        "run",
-        "deploy",
-        "backendnote",
-        "--image",
-        "gcr.io/h-07-450914/backendnote",
-        "--region",
-        "us-central1",
-        "--platform",
-        "managed",
-        "--allow-unauthenticated"
+        'run', 'deploy', 'backend-service',
+        '--image', 'gcr.io/$PROJECT_ID/backend-service',
+        '--region', 'us-central1',
+        '--platform', 'managed',
+        '--allow-unauthenticated'
       ]
-
-timeout: "1600s"
-
-options:
-  logging: CLOUD_LOGGING_ONLY
