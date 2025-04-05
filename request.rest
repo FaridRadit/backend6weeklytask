@@ -1,0 +1,10 @@
+
+POST http://localhost:5000/createNote
+Content-Type: application/json
+
+{
+    "name": "Ambatukam",
+    "catatan" : "Lorem What might be happening is you've got the npm packages for material ui installed in one npm_modules directory but not the packages for React which it depends on. The end result being it blows up when it tries to reference React. React meanwhile works fine for your own code because its satisfying the dependency by looking in a different node_modules directory."
+}
+
+
