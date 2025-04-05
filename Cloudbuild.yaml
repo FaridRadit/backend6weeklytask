@@ -1,6 +1,6 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: [ "build", "-t", "gcr.io/$PROJECT_ID/backendnote", "." ]
+    args: [ "build", "-t", "gcr.io/h-07-450914/backendnote", "." ]
 
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: "gcloud"
@@ -10,7 +10,7 @@ steps:
         "deploy",
         "backendnote",
         "--image",
-        "gcr.io/$PROJECT_ID/backendnote",
+        "gcr.io/h-07-450914/backendnote",
         "--region",
         "us-central1",
         "--platform",
