@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_key_change_this_in_production'; // Pastikan ini sama dengan di .env
+const JWT_SECRET = process.env.JWT_SECRET;
 
 async function registerUser(req, res) {
     try {
