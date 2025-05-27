@@ -8,7 +8,7 @@ import User from "./model/model.js";
 import Note from "./model/note.js";
 
 
-import authRoutes from "./Routes/route.js";
+
 import noteRoutes from "./Routes/noteRoutes.js";
 
 dotenv.config();
